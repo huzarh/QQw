@@ -1,12 +1,15 @@
 "use client";
+import { useMyContext } from "@/context/context";
 import { useTheme } from "next-themes";
 import React from "react";
 
 export default function Projects() {
+  const { value, setValue } = useMyContext();
   const { theme } = useTheme();
   const projects = [
     {
       baslik: "# Günlük Haber Sitesi",
+      // baslik: value,
       aciklama:
         "İlk projelerimden biri olarak, web teknolojilerini, içerik yönetimini ve veri aktarımını anlamama yardımcı oldu. Bu proje bana pratik deneyim kazandırdı. Bir web sitesi oluşturmanın ve yönetmenin temellerini öğrendim.",
       surec: 75,
