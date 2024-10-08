@@ -9,7 +9,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			'iawriter': ['"iA Writer Mono"', 'monospace'],
+		  },
   		colors: {
+			testcolor: 'var(--test-color)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
