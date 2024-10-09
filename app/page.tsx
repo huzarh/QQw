@@ -8,13 +8,13 @@ export default function Home() {
   const { value, setValue } = useMyContext();
   return (
     <div className="relative w-full h-full">
-      {/* <div className="absolute top-0 left-0 w-full h-full z-0   	">
+      <div className="absolute top-0 left-0 w-full h-1/5 z-0 opacity-65 dark:opacity-25 	drop-shadow-2xl">
         <img
           alt="Profile"
-          src="https://i.etsystatic.com/41590512/r/il/4231c8/4962397306/il_1140xN.4962397306_p1h1.jpg"
-          className="w-full h-[10%] bg-cover bg-center"
+          src="/assets/2.jpeg"
+          className="object-cover h-full w-full"
         />
-      </div> */}
+      </div>
       <p className="mt-6 border-l-2 pl-6 italic">
         "Sakla samanı, gelir zamanı"
       </p>
