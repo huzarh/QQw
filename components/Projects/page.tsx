@@ -133,7 +133,7 @@ export default function Projects() {
               key={img + id}
               alt={img}
               src={`/assets/icons/${img}.svg`}
-              className="inline-block h-10 w-10 p-2"
+              className="inline-block h-10 w-10 p-2 cursor-pointer"
             />
           ))}
         </div>

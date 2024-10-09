@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/components/Footer/page";
 import About from "./pages/about";
 import Projects from "@/components/Projects/page";
 import { ContextProvider, useMyContext } from "@/context/context";
@@ -8,21 +9,28 @@ export default function Home() {
   const { value, setValue } = useMyContext();
   return (
     <div className="relative w-full h-full">
-      <div className="absolute top-0 left-0 w-full h-1/5 z-0 opacity-65 dark:opacity-25 	drop-shadow-2xl">
+      <div className="absolute top-0 left-0 w-full h-72 z-0 opacity-65 dark:opacity-25	drop-shadow-2xl">
+        <img
+          alt="Profile"
+          src="/assets/2.jpeg"
+          className="object-cover h-full w-full rounded-lg"
+        />
+      </div>
+      {/* <div className="absolute pt-2 mt-72 left-0 w-full h-80 z-0 opacity-65 dark:opacity-25 	drop-shadow-2xl">
         <img
           alt="Profile"
           src="/assets/2.jpeg"
           className="object-cover h-full w-full"
         />
-      </div>
-      <p className="mt-6 border-l-2 pl-6 italic">
+      </div> */}
+      <p className="mt-6 border-l-2 pl-2 italic mt-4">
         "Sakla samanı, gelir zamanı"
       </p>
       <article className="relative z-10 flex flex-col items-center justify-between mb-44 pt-40">
         <img
           alt="Profile"
           src="/assets/profile.jpeg"
-          className="inline-block h-48 w-48 rounded-full border-solid border border-gray-400 p-2"
+          className="inline-block h-56 w-56 rounded-full bg-white dark:bg-zinc-950  p-4"
         />
         <h3 className="text-2xl font-semibold tracking-tight pt-5 text-orange-400 font-iawriter">
           Khuzair Askyer
@@ -50,7 +58,11 @@ export default function Home() {
         /> */}
       </article>
       <About />
+      <br />
+      <br />
+      <br />
       <Projects />
+      <Footer />
     </div>
   );
 }

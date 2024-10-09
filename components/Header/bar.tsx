@@ -22,23 +22,38 @@ export function MenubarDemo() {
   return (
     <Menubar>
       <MenubarMenu>
-        <MenubarTrigger>
+        <MenubarTrigger className="cursor-pointer">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </MenubarTrigger>
 
         <MenubarContent align="center">
-          <MenubarItem onClick={() => setTheme("light")}>Light</MenubarItem>
-          <MenubarItem onClick={() => setTheme("dark")}>Dark</MenubarItem>
-          <MenubarItem onClick={() => setTheme("system")}>System</MenubarItem>
+          <MenubarItem
+            onClick={() => setTheme("light")}
+            className="cursor-pointer"
+          >
+            Light
+          </MenubarItem>
+          <MenubarItem
+            onClick={() => setTheme("dark")}
+            className="cursor-pointer"
+          >
+            Dark
+          </MenubarItem>
+          <MenubarItem
+            onClick={() => setTheme("system")}
+            className="cursor-pointer"
+          >
+            System
+          </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>TR</MenubarTrigger>
+        <MenubarTrigger className="cursor-pointer">TR</MenubarTrigger>
         <MenubarContent align="end">
           <MenubarRadioGroup value="tr">
-            <MenubarRadioItem value="tr">
+            <MenubarRadioItem value="tr" className="cursor-pointer">
               TR <MenubarShortcut>🇹🇷</MenubarShortcut>
             </MenubarRadioItem>
             <MenubarRadioItem value="en" disabled>
@@ -55,11 +70,32 @@ export function MenubarDemo() {
       </MenubarMenu>
 
       <MenubarMenu>
-        <MenubarTrigger>Contact</MenubarTrigger>
+        <MenubarTrigger className="cursor-pointer">Contact</MenubarTrigger>
         <MenubarContent align="end">
-          <MenubarItem>github</MenubarItem>
-          <MenubarItem>Instagram</MenubarItem>
-          <MenubarItem>Linkedin</MenubarItem>
+          <MenubarItem className="cursor-pointer">
+            <img
+              alt="kjhk"
+              src="/assets/icons/Github-Dark.svg"
+              className="inline-block h-8 w-8 p-2"
+            />
+            Github
+          </MenubarItem>
+          <MenubarItem className="cursor-pointer">
+            <img
+              alt="Ig"
+              src="/assets/icons/Instagram.svg"
+              className="inline-block h-8 w-8 p-2"
+            />
+            Instagram
+          </MenubarItem>
+          <MenubarItem className="cursor-pointer">
+            <img
+              alt="Linkedin"
+              src="/assets/icons/Linkedin.svg"
+              className="inline-block h-8 w-8 p-2"
+            />
+            Linkedin
+          </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
     </Menubar>
