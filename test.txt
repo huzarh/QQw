@@ -1,0 +1,51 @@
+.
+├── README.md
+├── app
+│   ├── fonts
+│   │   ├── GeistMonoVF.woff
+│   │   └── GeistVF.woff
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── pages
+│   │   └── about.tsx
+│   └── providers.tsx
+├── components
+│   ├── Footer
+│   │   └── page.tsx
+│   ├── Header
+│   │   ├── bar.tsx
+│   │   └── page.tsx
+│   ├── Projects
+│   │   ├── page.tsx
+│   │   └── text.txt
+│   ├── chart.tsx
+│   ├── lang-toggle.tsx
+│   ├── mode-toggle.tsx
+│   ├── test.tsx
+│   ├── theme-provider.tsx
+│   └── ui
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── chart.tsx
+│       ├── dropdown-menu.tsx
+│       └── menubar.tsx
+├── components.json
+├── context
+│   └── context.tsx
+├── lib
+│   └── utils.ts
+├── messages
+│   ├── en.json
+│   └── tr.json
+├── next-env.d.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── tailwind.config.ts
+├── test.text
+├── test.txt
+└── tsconfig.json
+
+12 directories, 37 files

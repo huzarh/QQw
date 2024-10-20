@@ -2,22 +2,33 @@
 
 import {
   Menubar,
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
   MenubarRadioGroup,
   MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
+  MenubarShortcut,
 } from "@/components/ui/menubar";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 
 export function MenubarDemo() {
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  const localActive = useLocale();
   const { setTheme } = useTheme();
+  const t = useTranslations("header");
+
+  const onSelectChange = (locale) => {
+    startTransition(() => {
+      router.replace(`/${locale}`);
+    });
+  };
 
   return (
     <Menubar>
@@ -29,72 +40,80 @@ export function MenubarDemo() {
         </MenubarTrigger>
 
         <MenubarContent align="center">
-          <MenubarItem
-            onClick={() => setTheme("light")}
-            className="cursor-pointer"
-          >
-            Light
+          <MenubarItem onClick={() => setTheme("light")}>
+            {t("mode.light")}
           </MenubarItem>
-          <MenubarItem
-            onClick={() => setTheme("dark")}
-            className="cursor-pointer"
-          >
-            Dark
+          <MenubarItem onClick={() => setTheme("dark")}>
+            {t("mode.dark")}
           </MenubarItem>
-          <MenubarItem
-            onClick={() => setTheme("system")}
-            className="cursor-pointer"
-          >
-            System
-          </MenubarItem>
+          <MenubarItem onClick={() => setTheme("system")}>System</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
+
       <MenubarMenu>
-        <MenubarTrigger className="cursor-pointer">TR</MenubarTrigger>
+        <MenubarTrigger className="cursor-pointer">
+          {localActive}
+        </MenubarTrigger>
         <MenubarContent align="end">
-          <MenubarRadioGroup value="tr">
-            <MenubarRadioItem value="tr" className="cursor-pointer">
-              TR <MenubarShortcut>🇹🇷</MenubarShortcut>
+          <MenubarRadioGroup
+            value={localActive}
+            onChange={onSelectChange}
+            disabled={isPending}
+          >
+            <MenubarRadioItem
+              value="tr"
+              className="cursor-pointer"
+              onClick={() => onSelectChange("tr")}
+            >
+              türkçe <MenubarShortcut>🇹🇷</MenubarShortcut>
             </MenubarRadioItem>
-            <MenubarRadioItem value="en" disabled>
-              EN <MenubarShortcut>🇬🇧</MenubarShortcut>
+            <MenubarRadioItem value="en" onClick={() => onSelectChange("en")}>
+              english <MenubarShortcut>🇬🇧</MenubarShortcut>
             </MenubarRadioItem>
-            <MenubarRadioItem value="kz" disabled>
-              KZ <MenubarShortcut>🇰🇿</MenubarShortcut>
+            <MenubarRadioItem value="kz" onClick={() => onSelectChange("kz")}>
+              қазақ <MenubarShortcut>🇰🇿</MenubarShortcut>
             </MenubarRadioItem>
-            <MenubarRadioItem value="mn" disabled>
-              MN <MenubarShortcut>🇲🇳</MenubarShortcut>
+            <MenubarRadioItem value="mn" onClick={() => onSelectChange("mn")}>
+              монгол <MenubarShortcut>🇲🇳</MenubarShortcut>
             </MenubarRadioItem>
           </MenubarRadioGroup>
         </MenubarContent>
       </MenubarMenu>
 
       <MenubarMenu>
-        <MenubarTrigger className="cursor-pointer">Contact</MenubarTrigger>
+        <MenubarTrigger className="cursor-pointer">
+          {t("contact")}
+        </MenubarTrigger>
         <MenubarContent align="end">
           <MenubarItem className="cursor-pointer">
-            <img
-              alt="kjhk"
-              src="/assets/icons/Github-Dark.svg"
-              className="inline-block h-8 w-8 p-2"
-            />
-            Github
+            <Link href="https://github.com/huzarh">
+              <img
+                alt="GitHub"
+                src="/assets/icons/Github-Dark.svg"
+                className="inline-block h-8 w-8 p-2"
+              />
+              Github
+            </Link>
           </MenubarItem>
           <MenubarItem className="cursor-pointer">
-            <img
-              alt="Ig"
-              src="/assets/icons/Instagram.svg"
-              className="inline-block h-8 w-8 p-2"
-            />
-            Instagram
+            <Link href="https://www.instagram.com/zir_huz/">
+              <img
+                alt="Instagram"
+                src="/assets/icons/Instagram.svg"
+                className="inline-block h-8 w-8 p-2"
+              />
+              Instagram
+            </Link>
           </MenubarItem>
           <MenubarItem className="cursor-pointer">
-            <img
-              alt="Linkedin"
-              src="/assets/icons/Linkedin.svg"
-              className="inline-block h-8 w-8 p-2"
-            />
-            Linkedin
+            <Link href="https://www.linkedin.com/in/uzeyiraskyer">
+              <img
+                alt="LinkedIn"
+                src="/assets/icons/Linkedin.svg"
+                className="inline-block h-8 w-8 p-2"
+              />
+              LinkedIn
+            </Link>
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>

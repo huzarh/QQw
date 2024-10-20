@@ -1,15 +1,4 @@
 import React from "react";
-import { ModeToggle } from "../mode-toggle";
-import { LangToggle } from "../lang-toggle";
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
 import { MenubarDemo } from "./bar";
 
 export default function Header() {

@@ -1,6 +1,4 @@
 "use client";
-
-import { ParallaxProvider } from "react-scroll-parallax";
 import { ContextProvider } from "../context/context";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -12,9 +10,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableSystem
       disableTransitionOnChange
     >
-      <ContextProvider>
-        <ParallaxProvider>{children}</ParallaxProvider>
-      </ContextProvider>
+      <ContextProvider> {children}</ContextProvider>
     </ThemeProvider>
   );
 }
