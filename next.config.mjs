@@ -5,7 +5,6 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
@@ -14,6 +13,10 @@ const nextConfig = {
     };
 
     return config;
+  },
+  reactStrictMode: true,
+  images: {
+      domains: ['uzeyiraskyer.com'],
   },
 };
 
