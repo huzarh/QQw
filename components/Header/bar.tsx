@@ -15,6 +15,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image"; 
 import Link from "next/link";
 
 export function MenubarDemo() {
@@ -24,7 +25,7 @@ export function MenubarDemo() {
   const { setTheme } = useTheme();
   const t = useTranslations("header");
 
-  const onSelectChange = (locale) => {
+  const onSelectChange = (locale: React.ChangeEvent<HTMLDivElement>) => {
     startTransition(() => {
       router.replace(`/${locale}`);
     });
@@ -87,9 +88,11 @@ export function MenubarDemo() {
         <MenubarContent align="end">
           <MenubarItem className="cursor-pointer">
             <Link href="https://github.com/huzarh">
-              <img
+              <Image
                 alt="GitHub"
                 src="/assets/icons/Github-Dark.svg"
+                width={32}
+                height={32}
                 className="inline-block h-8 w-8 p-2"
               />
               Github
@@ -97,9 +100,11 @@ export function MenubarDemo() {
           </MenubarItem>
           <MenubarItem className="cursor-pointer">
             <Link href="https://www.instagram.com/zir_huz/">
-              <img
+              <Image
                 alt="Instagram"
                 src="/assets/icons/Instagram.svg"
+                width={32}
+                height={32}
                 className="inline-block h-8 w-8 p-2"
               />
               Instagram
@@ -107,9 +112,11 @@ export function MenubarDemo() {
           </MenubarItem>
           <MenubarItem className="cursor-pointer">
             <Link href="https://www.linkedin.com/in/uzeyiraskyer">
-              <img
+              <Image
                 alt="LinkedIn"
                 src="/assets/icons/Linkedin.svg"
+                width={32}
+                height={32}
                 className="inline-block h-8 w-8 p-2"
               />
               LinkedIn

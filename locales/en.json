@@ -2,9 +2,11 @@
   "about": {
     "fullName": "Khuzair Askyer",
     "title": "About Me",
-    "intro": "Hello, I am /Uzeyir/, an experienced /software/ developer in the front-end field. My expertise includes /React, Nextjs/, and user interface /UX, UI/ design. I help people with the knowledge and experience I have in this field. \nI can best support you by providing customized solutions based on your needs. Please contact me for more details and information about my services."
+    "intro": "Hello, I am Uzeyir, a software developer in the front-end field. I know a lot about React, Next.js, and UI/UX design. I help people by using my knowledge and experience. \nI can support you by giving solutions based on your needs. Please contact me for more details about my services."
   },
-  "common": { "adage": "If life is an experiment in a virtual universe..." },
+  "common": {
+    "adage": "Our past strengthens our future; the best part is that we create our own past..."
+  },
   "header": {
     "contact": "Contact",
     "mode": {
@@ -16,42 +18,42 @@
   "projects": {
     "1": {
       "title": "# News Website",
-      "description": "As one of my first projects, it helped me understand web technologies, content management, and data transfer. This project provided me with practical experience. I learned the basics of building and managing a website.",
+      "description": "This was one of my first projects. It helped me learn about web technologies, content management, and data transfer. I gained practical experience and learned how to build and manage a website.",
       "process": 75
     },
     "2": {
       "title": "📊 Talent Analysis for Students",
-      "description": "This project aimed to help students discover their talents. Students could input various skills and interests, simplifying their career selection process based on this information.",
+      "description": "This project helps students find their talents. Students can enter their skills and interests. This makes it easier for them to choose a career.",
       "process": 35
     },
     "3": {
       "title": "📚 BITurk – Turkish Language Learning App",
-      "description": "BITurk was a mobile and web application designed to help users learn the Turkish language. This project enhanced my experience in application development and designing interactive and engaging learning tools.",
+      "description": "BITurk is a mobile and web app to help users learn Turkish. This project helped me improve my skills in application development and creating engaging learning tools.",
       "process": 65
     },
     "4": {
       "title": "⌗ Npm Library for Real-Time Data Transfer",
-      "description": "This project focused on real-time data transfer, inspired by delays in my university's LMS system. I designed a simple library that could be easily integrated into LMS platforms to provide instant notifications and schedules.",
+      "description": "This project focused on real-time data transfer. I created a library that can be easily added to LMS platforms to send instant notifications and schedules.",
       "process": 87
     },
     "5": {
       "title": "🎯 Online Game with Social Features",
-      "description": "This project allowed users to meet and play games together. I learned a lot about building real-time multiplayer systems and scalable online services.",
+      "description": "This project allows users to meet and play games together. I learned a lot about building real-time multiplayer systems and online services.",
       "process": 85
     },
     "6": {
       "title": "🍪 3D Cookie Cutter Generator",
-      "description": "In this project, users could upload an image, and the system would detect the edges to create 3D-printable cookie cutter files. This project enhanced my image processing skills in a browser environment.",
+      "description": "In this project, users can upload an image. The system detects the edges to create 3D-printable cookie cutter files. This project improved my image processing skills.",
       "process": 80
     },
     "7": {
       "title": "🌍 360 Degree Virtual Tour Web Application",
-      "description": "I developed a web application using Three.js that allowed users to explore virtual environments in 360 degrees. This project deepened my experience with 3D technologies.",
+      "description": "I created a web app with Three.js that lets users explore virtual environments in 360 degrees. This project deepened my knowledge of 3D technologies.",
       "process": 45
     },
     "8": {
       "title": "🏠 Remote Home Control Application",
-      "description": "This project focused on controlling home devices remotely using WiFi systems. I gained valuable experience in IoT systems, hardware integration, and real-time monitoring.",
+      "description": "This project focuses on controlling home devices using WiFi. I gained experience in IoT systems, hardware integration, and real-time monitoring.",
       "process": 89
     }
   }

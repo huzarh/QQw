@@ -13,10 +13,11 @@ export default function Home() {
     <div className="relative w-full h-full">
       <div className="absolute top-0 left-0 w-full h-72 z-0 opacity-65 dark:opacity-25 drop-shadow-2xl">
         <Image
+          priority
           alt="Profile"
           src="/assets/2.jpeg"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
           className="rounded-lg"
         />
       </div>
@@ -25,9 +26,9 @@ export default function Home() {
         <Image
           alt="Profile"
           src="/assets/profile.jpeg"
-          height={240} // You can set the height and width or use layout props
+          height={240}
           width={224}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
           className="inline-block  rounded-full bg-white dark:bg-zinc-950 p-4"
         />
         <h3 className="text-2xl font-semibold tracking-tight pt-5 text-orange-400 font-iawriter">

@@ -4,7 +4,9 @@
     "title": "Hakkımda",
     "intro": " Merhaba, ben /Uzeyir/, Front-end alanında deneyimli bir /yazılım/ geliştiricisiyim. Uzmanlıklarım arasında /React, Nextjs/ ve kullanıcı arayüzü /UX,UI/ tasarımı yer almakta. İnsanlara, bu alanda sahip olduğum bilgi ve tecrübelerle yardımcı oluyorum. \nİhtiyaçlarınıza göre özelleştirilmiş çözümler sunarak size en iyi şekilde destek olabilirim. Detaylar ve hizmetlerim hakkında bilgi almak için lütfen iletişime geçin."
   },
-  "common": { "adage": "Hayat, sanal bir evrende yapılan bir deneyse..." },
+  "common": {
+    "adage": "Geçmişimiz, geleceğimizi güçlendirir; en iyisi, geçmişimizi biz yaratıyoruz..."
+  },
   "header": {
     "contact": "İletişim",
     "mode": {
