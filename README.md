@@ -32,5 +32,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Deploy
 
 ```shell
+docker login ghcr.io -u <YOUR_GITHUB_USERNAME>
 docker build -t ghcr.io/bnymn/uzeyiraskyer.com:main .
+docker push ghcr.io/bnymn/uzeyiraskyer.com:main
+```
+
+```shell
+docker login ghcr.io -u <YOUR_GITHUB_USERNAME>
+docker pull ghcr.io/bnymn/uzeyiraskyer.com:main
+docker run -d -p 3000:3000 --name uzeyiraskyer.com --restart unless-stopped uzeyiraskyer.com
+
 ```
