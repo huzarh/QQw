@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Menubar,
   MenubarContent,
@@ -13,22 +12,18 @@ import {
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
-import { useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image"; 
+import Image from "next/image";
 import Link from "next/link";
 
 export function MenubarDemo() {
-  const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const localActive = useLocale();
   const { setTheme } = useTheme();
   const t = useTranslations("header");
 
-  const onSelectChange = (locale: React.ChangeEvent<HTMLDivElement>) => {
-    startTransition(() => {
-      router.replace(`/${locale}`);
-    });
+  const onSelectChange = (locale: string) => {
+    router.replace(`/${locale}`);
   };
 
   return (
@@ -56,26 +51,18 @@ export function MenubarDemo() {
           {localActive}
         </MenubarTrigger>
         <MenubarContent align="end">
-          <MenubarRadioGroup
-            value={localActive}
-            onChange={onSelectChange}
-            disabled={isPending}
-          >
-            <MenubarRadioItem
-              value="tr"
-              className="cursor-pointer"
-              onClick={() => onSelectChange("tr")}
-            >
-              türkçe <MenubarShortcut>🇹🇷</MenubarShortcut>
+          <MenubarRadioGroup value={localActive} onValueChange={onSelectChange}>
+            <MenubarRadioItem value="tr" className="cursor-pointer">
+              Türkçe <MenubarShortcut>🇹🇷</MenubarShortcut>
             </MenubarRadioItem>
-            <MenubarRadioItem value="en" onClick={() => onSelectChange("en")}>
-              english <MenubarShortcut>🇬🇧</MenubarShortcut>
+            <MenubarRadioItem value="en" className="cursor-pointer">
+              English <MenubarShortcut>🇬🇧</MenubarShortcut>
             </MenubarRadioItem>
-            <MenubarRadioItem value="kz" onClick={() => onSelectChange("kz")}>
-              қазақ <MenubarShortcut>🇰🇿</MenubarShortcut>
+            <MenubarRadioItem value="kz" className="cursor-pointer">
+              Қазақ <MenubarShortcut>🇰🇿</MenubarShortcut>
             </MenubarRadioItem>
-            <MenubarRadioItem value="mn" onClick={() => onSelectChange("mn")}>
-              монгол <MenubarShortcut>🇲🇳</MenubarShortcut>
+            <MenubarRadioItem value="mn" className="cursor-pointer">
+              Монгол <MenubarShortcut>🇲🇳</MenubarShortcut>
             </MenubarRadioItem>
           </MenubarRadioGroup>
         </MenubarContent>
