@@ -1,8 +1,13 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin();
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    reactStrictMode: true,
+    images: {
+        domains: ['uzeyiraskyer.com'],
+    },
+};
+
+const withNextIntl = createNextIntlPlugin();
 
 export default withNextIntl(nextConfig);
