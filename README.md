@@ -33,13 +33,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ```shell
 docker login ghcr.io -u <YOUR_GITHUB_USERNAME>
-docker build -t ghcr.io/bnymn/uzeyiraskyer.com:main .
-docker push ghcr.io/bnymn/uzeyiraskyer.com:main
+docker buildx build --platform linux/amd64 --push -t ghcr.io/bnymn/uzeyiraskyer.com:main .
 ```
 
 ```shell
 docker login ghcr.io -u <YOUR_GITHUB_USERNAME>
 docker pull ghcr.io/bnymn/uzeyiraskyer.com:main
-docker run -d -p 3000:3000 --name uzeyiraskyer.com --restart unless-stopped uzeyiraskyer.com
-
+docker run -d -p 3000:3000 --name uzeyiraskyer.com --restart unless-stopped ghcr.io/bnymn/uzeyiraskyer.com:main
 ```
