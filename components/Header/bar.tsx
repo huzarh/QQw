@@ -58,9 +58,9 @@ export function MenubarDemo() {
             <MenubarRadioItem value="en" className="cursor-pointer">
               English <MenubarShortcut>🇬🇧</MenubarShortcut>
             </MenubarRadioItem>
-            <MenubarRadioItem value="kz" className="cursor-pointer">
+            {/* <MenubarRadioItem value="kz" className="cursor-pointer">
               Қазақ <MenubarShortcut>🇰🇿</MenubarShortcut>
-            </MenubarRadioItem>
+            </MenubarRadioItem> */}
             <MenubarRadioItem value="mn" className="cursor-pointer">
               Монгол <MenubarShortcut>🇲🇳</MenubarShortcut>
             </MenubarRadioItem>
