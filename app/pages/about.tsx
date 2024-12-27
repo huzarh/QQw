@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Head from 'next/head';
 
 const About = () => {
   const t = useTranslations("about");
@@ -18,10 +19,17 @@ const About = () => {
   };
 
   return (
-    <div className="leading-7 text-center font-iawriter text-justify mt-6">
+    <>
+    <Head>
+        <title>Hakkımda | Üzeyir</title>
+      <meta name="description" content="Üzeyir hakkında daha fazla bilgi edinin." />
+    </Head>
+
+    <main  className="leading-7 text-center font-iawriter text-justify mt-6">
       <h1>{t("title")}</h1>
-      <div>{formatText(t("intro"))}</div>
-    </div>
+      <p>{formatText(t("intro"))}</p>
+    </main>
+    </>
   );
 };
 
