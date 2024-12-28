@@ -16,7 +16,14 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-      domains: ['uzeyiraskyer.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'uzeyiraskyer.com',
+        port: '',
+        pathname: '/assets/**',
+      },
+    ],
   },
 };
 

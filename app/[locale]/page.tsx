@@ -20,8 +20,8 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-72 z-0 opacity-65 dark:opacity-25 drop-shadow-2xl">
           <Image
             priority
-            alt="Profile"
-            src="/assets/2.jpeg"
+            alt="background"
+            src="/assets/uzeyir-draw.jpeg"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             style={{ objectFit: "cover" }}
@@ -31,8 +31,8 @@ export default function Home() {
         <p className="mt-6 border-l-2 pl-2 italic mt-4">{t("adage")}</p>
         <article className="relative z-10 flex flex-col items-center justify-between mb-44 pt-36">
           <Image
-            alt="Profile"
-            src="/assets/profile.jpeg"
+            alt={ab("profile_alt")}
+            src="/assets/uzeyir-askyer.jpeg"
             height={240}
             width={224}
             style={{ objectFit: "cover" }}

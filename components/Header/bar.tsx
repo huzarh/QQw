@@ -56,7 +56,7 @@ export function MenubarDemo() {
               Türkçe <MenubarShortcut>🇹🇷</MenubarShortcut>
             </MenubarRadioItem>
             <MenubarRadioItem value="en" className="cursor-pointer">
-              English <MenubarShortcut>🇬🇧</MenubarShortcut>
+              English <MenubarShortcut>en</MenubarShortcut>
             </MenubarRadioItem>
             {/* <MenubarRadioItem value="kz" className="cursor-pointer">
               Қазақ <MenubarShortcut>🇰🇿</MenubarShortcut>
