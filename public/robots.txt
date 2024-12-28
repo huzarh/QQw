@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://uzeyiraskyer.com/
+
+# Sitemaps
+Sitemap: https://uzeyiraskyer.com/sitemap.xml
