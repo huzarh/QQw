@@ -37,7 +37,8 @@ export default async function RootLayout({
       <NextIntlClientProvider messages={messages}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} p-4 antialiased w-5xl min-w-80`}
-        >
+        >        <meta name="google-site-verification" content="_6hZElubIlAU_jlpUA_eUuZnMudfeAWKbt_f0vwn2MI" />
+
           <Providers>
             <Header />
             {children}
