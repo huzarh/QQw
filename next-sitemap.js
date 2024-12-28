@@ -1,8 +1,8 @@
 module.exports = {
-    siteUrl: 'https://uzeyiraskyer.com/', // Web sitenizin URL'si
-    generateRobotsTxt: true, // robots.txt dosyasını oluşturur
-    sitemapSize: 7000, // Her bir sitemap dosyasındaki URL sayısı
-    changefreq: 'daily', // Sayfa güncellenme sıklığı
-    priority: 0.7, // Sayfaların önceliği
+    siteUrl: 'https://uzeyiraskyer.com/',
+    generateRobotsTxt: true, 
+    sitemapSize: 7000, 
+    changefreq: 'daily', 
+    priority: 0.7,
   }
   
