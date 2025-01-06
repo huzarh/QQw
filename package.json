@@ -15,8 +15,11 @@
     "@radix-ui/react-menubar": "^1.1.2",
     "@radix-ui/react-radio-group": "^1.2.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-three/drei": "^9.120.5",
+    "@react-three/fiber": "^8.17.10",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dat.gui": "^0.7.9",
     "i18next": "^23.15.2",
     "i18next-resources-to-backend": "^1.2.1",
     "lucide-react": "^0.447.0",
@@ -34,6 +37,7 @@
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.172.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

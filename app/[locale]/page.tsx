@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Head from "next/head";
+import GLTFViewer from "@/components/render/gltf/model";
 
 export default function Home() {
   const t = useTranslations("common");
@@ -63,7 +64,9 @@ export default function Home() {
         <br />
         <Projects />
         <Footer />
-      </main>
+        <br/>
+        <GLTFViewer gltfPath="/models/gltf/sculpture/scene.gltf" />
+        </main>
     </>
   );
 }
