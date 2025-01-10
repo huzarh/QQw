@@ -49,7 +49,7 @@ export default function Home() {
               </strong>
             </Link>{" "}
             <a
-              onClick={() => alert("Whatsapp: +7 775 520 0463")}
+              onClick={() => alert("Whatsapp: +90 534 718 9425)}
               className="cursor-pointer"
             >
               <strong className="underline decoration-sky-500/[.33] text-sky-600">

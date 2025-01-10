@@ -37,7 +37,7 @@ export default function Test() {
           </div>{" "}
           <GLTFViewer2 gltfPath="/models/gltf/face/scene.gltf" />
         </div>
-      </div>
+      </div> 
     </main>
   );
 }
