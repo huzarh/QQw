@@ -1,3 +1,5 @@
+"use client"; // Mark as a Client Component
+
 import React, { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Point cloud portrait test
+* source:	https://sketchfab.com/3d-models/point-cloud-portrait-test-4392f3ccf8f5414997141952adcee885
+* author:	yaro.pro (https://sketchfab.com/yaro.pro)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Point cloud portrait test" (https://sketchfab.com/3d-models/point-cloud-portrait-test-4392f3ccf8f5414997141952adcee885) by yaro.pro (https://sketchfab.com/yaro.pro) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

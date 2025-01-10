@@ -1,0 +1,11 @@
+Model Information:
+* title:	Choshi-Otaki Falls, Oirase Valley, Aomori
+* source:	https://sketchfab.com/3d-models/choshi-otaki-falls-oirase-valley-aomori-ea1ef9e7f82f418ea0776ceb6894ebd1
+* author:	yuichi hayakawa (https://sketchfab.com/yshaya)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Choshi-Otaki Falls, Oirase Valley, Aomori" (https://sketchfab.com/3d-models/choshi-otaki-falls-oirase-valley-aomori-ea1ef9e7f82f418ea0776ceb6894ebd1) by yuichi hayakawa (https://sketchfab.com/yshaya) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

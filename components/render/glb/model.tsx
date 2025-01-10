@@ -1,3 +1,5 @@
+"use client"; // Mark as a Client Component
+
 import React, { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -14,7 +16,7 @@ const GLBModel: React.FC<{ glbPath: string }> = ({ glbPath }) => {
 
 const GLBViewer: React.FC<GLBViewerProps> = ({ glbPath }) => {
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
+    <div style={{ width: "100%", height: "100vh" ,background:"gray"}}>
       <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} intensity={1} />

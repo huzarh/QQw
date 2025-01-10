@@ -6,8 +6,7 @@
   .text-balance {
     text-wrap: balance;
   }
-}
-
+} 
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -84,5 +83,5 @@ html {
   padding: 0;
 }
 body {
-  max-width: 600px;
+  overflow: hidden;
 }

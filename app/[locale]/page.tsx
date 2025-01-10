@@ -1,72 +1,43 @@
-"use client";
-import Footer from "@/components/Footer/page";
-import About from "../pages/about";
-import Projects from "@/components/Projects/page";
-import Link from "next/link";
+"use client"; 
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import Head from "next/head";
-import GLTFViewer from "@/components/render/gltf/model";
 
-export default function Home() {
+const GLTFViewer = dynamic(() => import("@/components/render/gltf/model"), {
+  ssr: false, // Disable SSR for this component
+});
+const GLTFViewer2 = dynamic(() => import("@/components/render/gltf/model2"), {
+  ssr: false, // Disable SSR for this component
+});
+
+export default function Test() {
   const t = useTranslations("common");
   const ab = useTranslations("about");
   return (
-    <>
-      <Head>
-        <title>Ana Sayfa | Üzeyir</title>
-        <meta name="description" content="Üzeyir'nin projelerine göz atın." />
-      </Head>
-      <main className="relative w-full h-full">
-        <div className="absolute top-0 left-0 w-full h-72 z-0 opacity-65 dark:opacity-25 drop-shadow-2xl">
-          <Image
-            priority
-            alt="background"
-            src="/assets/uzeyir-draw.jpeg"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: "cover" }}
-            className="rounded-lg"
-          />
-        </div>
-        <p className="mt-6 border-l-2 pl-2 italic mt-4">{t("adage")}</p>
-        <article className="relative z-10 flex flex-col items-center justify-between mb-44 pt-36">
-          <Image
-            alt={ab("profile_alt")}
-            src="/assets/uzeyir-askyer.jpeg"
-            height={240}
-            width={224}
-            style={{ objectFit: "cover" }}
-            className="inline-block  rounded-full bg-white dark:bg-zinc-950 p-4"
-          />
-          <h1 className="text-2xl font-semibold tracking-tight pt-5 text-orange-400 font-iawriter">
+    <main className="relative w-screen h-screen overflow-hidden ">   
+      {/* 3D Model (Tam Ekran) */}
+      <div className="absolute inset-0 w-full h-full">
+        <GLTFViewer gltfPath="/models/gltf/nature/scene.gltf" />
+      </div>
+
+      {/* Açıklama Bölümü (400px x 400px) */}
+      <div className="absolute top-1/2 left-1/2 md:left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-[440px] h-[500px] bg-teal-950 bg-opacity-45 z-50 rounded-s-3xl rounded-e-3xl shadow-lg flex items-center justify-center overflow-hidden">
+        {" "}
+        <div className="w-full h-full  text-center flex flex-col items-center justify-start">
+          <div className="pt-8">
+            {" "}
+            <h2 className="text-xl font-bold mb-2 text-white">
             {ab("fullName")}
-          </h1>
-          <p className="flex justify-between items-center opacity-60 w-36 font-thin">
-            <Link href="https://github.com/huzarh" className="cursor-pointer">
-              <strong className="underline decoration-sky-500/[.33] text-orange-600">
-                #github
-              </strong>
-            </Link>{" "}
-            <a
-              onClick={() => alert("Whatsapp: +7 775 520 0463")}
-              className="cursor-pointer"
+            </h2>
+            <div
+              className="text-gray-300 text-sm"
+              // style={{ maxHeight: "70%" }}
             >
-              <strong className="underline decoration-sky-500/[.33] text-sky-600">
-                #whatsapp
-              </strong>
-            </a>
-          </p>
-        </article>
-        <About />
-        <br />
-        <br />
-        <br />
-        <Projects />
-        <Footer />
-        <br/>
-        <GLTFViewer gltfPath="/models/gltf/sculpture/scene.gltf" />
-        </main>
-    </>
+                {t("adage")}
+            </div>
+          </div>{" "}
+          <GLTFViewer2 gltfPath="/models/gltf/face/scene.gltf" />
+        </div>
+      </div>
+    </main>
   );
 }
