@@ -1,7 +1,7 @@
 "use client"; // Mark as a Client Component
 
 import React, { Suspense, useEffect } from "react";
-import { Canvas, useLoader, useThree } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
