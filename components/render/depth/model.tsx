@@ -4,7 +4,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { TextureLoader } from "three";
 import * as THREE from "three";
-import * as dat from "dat.gui"; // Doğru şekilde içe aktar
+import { GUI } from 'dat.gui'; // Updated import
 
 type DepthMapViewerProps = {
   depthMapPath: string; // Path to the depth map PNG
@@ -119,7 +119,7 @@ const DepthMapViewer: React.FC<DepthMapViewerProps> = ({ depthMapPath, texturePa
 
   // dat.gui ayarları
   useEffect(() => {
-    const gui = new dat.GUI(); // Doğru şekilde GUI örneği oluştur
+    const gui = new GUI(); // Doğru şekilde GUI örneği oluştur
     const controls = {
       wireframe: wireframe, // Wireframe kontrolü
     };
@@ -137,7 +137,7 @@ const DepthMapViewer: React.FC<DepthMapViewerProps> = ({ depthMapPath, texturePa
 
   return (
     <div style={{ width: "100%", height: "80vh", border: "1px solid rgb(69,69,137)", borderRadius: 20, backgroundColor: "#D6CFC1" }}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 22 }} antialias={false}>         
+      <Canvas camera={{ position: [0, 0, 5], fov: 22 }}   gl={{ antialias: false }}>         
         <ambientLight intensity={1} />
 
         {/* Depth map model */}

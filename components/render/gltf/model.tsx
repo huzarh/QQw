@@ -2,8 +2,8 @@
 
 import React, { Suspense, useEffect } from "react";
 import { Canvas, useLoader, useThree } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, Loader } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls, Loader } from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import * as THREE from "three";
 
 type GLTFViewerProps = {
@@ -12,7 +12,7 @@ type GLTFViewerProps = {
 
 const GLTFModel: React.FC<{ gltfPath: string }> = ({ gltfPath }) => {
   const gltf = useLoader(GLTFLoader, gltfPath);
-  const { scene } = gltf; 
+  const { scene } = gltf;
 
   const bbox = new THREE.Box3().setFromObject(scene);
   const center = new THREE.Vector3();
@@ -26,10 +26,12 @@ function CustomCamera() {
   const { camera } = useThree();
 
   useEffect(() => {
-    camera.position.set(-8, -6, -1);
-    camera.fov = 26;
-    camera.rotation.set(Math.PI / -8, 0, Math.PI / 5);
-    camera.updateProjectionMatrix();
+    if (camera instanceof THREE.PerspectiveCamera) {
+      camera.position.set(-5.4, -6, -1);
+      camera.fov = 26;
+      camera.rotation.set(Math.PI / -8, 0, Math.PI / 5);
+      camera.updateProjectionMatrix();
+    }
   }, [camera]);
 
   return null;
@@ -38,8 +40,8 @@ function CustomCamera() {
 const GLTFViewer: React.FC<GLTFViewerProps> = ({ gltfPath }) => {
   return (
     <>
-      <div className="w-full h-screen">
-        <Canvas>
+      <div className="w-full h-screen"  suppressHydrationWarning>
+        <Canvas camera={{ fov: 50, position: [5, 5, 5] }}>
           <CustomCamera />
           <Suspense fallback={null}>
             <GLTFModel gltfPath={gltfPath} />

@@ -1,6 +1,6 @@
-"use client";
-import { FC } from "react";
-import Head from "next/head"; // Next.js'de Head component'ini kullanın
+"use client"; 
+import Head from "next/head"; 
+
 
 export default function E_campus() {
   return (

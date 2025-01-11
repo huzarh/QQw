@@ -2,8 +2,8 @@
 
 import React, { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls } from "@react-three/drei"; 
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 type GLBViewerProps = {
   glbPath: string;
