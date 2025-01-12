@@ -46,10 +46,10 @@ const GLTFViewer2: React.FC<GLTFViewerProps> = ({ gltfPath }) => {
         <CustomCamera />
         <directionalLight
           position={[-90, 10, -10]} // Işığın konumu (modelin arkasından geliyor)
-          intensity={108} // Işık şiddeti
-          color={"blue"} // Güneş rengi (sarımsı turuncu)
+          intensity={6} // Işık şiddeti
+          color={"indigo"} // Güneş rengi (sarımsı turuncu)
         />
-        <ambientLight intensity={2} />
+        <ambientLight intensity={1.5} />
 
         <Suspense fallback={null}>
           <GLTFModel gltfPath={gltfPath} />
@@ -60,7 +60,7 @@ const GLTFViewer2: React.FC<GLTFViewerProps> = ({ gltfPath }) => {
           makeDefault // OrbitControls'u varsayılan kontroller yap
           target={[0, 0, 0]} // Modelin merkezine odaklan
           minDistance={0.4} // Kameranın modele minimum yakınlaşma mesafesi
-          maxDistance={1} // Kameranın modelden maksimum uzaklaşma mesafesi
+          maxDistance={1.1} // Kameranın modelden maksimum uzaklaşma mesafesi
           minPolarAngle={Math.PI / 1.5} // Kamera yatayda sabitlensin
         />
       </Canvas>

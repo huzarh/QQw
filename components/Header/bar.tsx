@@ -67,6 +67,16 @@ export function MenubarDemo() {
           </MenubarRadioGroup>
         </MenubarContent>
       </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger className="cursor-pointer">
+          Blog
+        </MenubarTrigger>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger className="cursor-pointer">
+          Info
+        </MenubarTrigger>
+      </MenubarMenu>
 
       <MenubarMenu>
         <MenubarTrigger className="cursor-pointer">

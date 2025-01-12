@@ -1,8 +1,8 @@
 "use client";
 
 import React, { Suspense, useEffect, useState, useRef } from "react";
-import { Canvas, useLoader, useThree } from "@react-three/fiber";
-import { OrbitControls, Loader, useProgress } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
+import { OrbitControls, Loader } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import * as THREE from "three";
@@ -14,71 +14,109 @@ type GLTFViewerProps = {
 const GLTFModel: React.FC<{ gltfPath: string }> = ({ gltfPath }) => {
   const [visibleMeshes, setVisibleMeshes] = useState<string[]>([]);
   const modelRef = useRef<THREE.Group>(null);
+  const loadedMeshesRef = useRef<THREE.Mesh[]>([]);
+  const processingInterval = useRef<NodeJS.Timeout | null>(null);
 
-  const gltf = useLoader(GLTFLoader, gltfPath, (loader) => {
+  useEffect(() => {
+    const loader = new GLTFLoader();
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath('/draco/');
     loader.setDRACOLoader(dracoLoader);
-  });
 
-  useEffect(() => {
-    if (!gltf) return;
+    // Start processing meshes immediately as they load
+    const startProcessingMeshes = () => {
+      if (processingInterval.current) return;
 
-    const meshes: THREE.Mesh[] = [];
-    gltf.scene.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        child.visible = false;
-        meshes.push(child);
+      processingInterval.current = setInterval(() => {
+        const unprocessedMeshes = loadedMeshesRef.current.filter(
+          mesh => !visibleMeshes.includes(mesh.uuid)
+        );
+
+        if (unprocessedMeshes.length > 0) {
+          const nextMesh = unprocessedMeshes[0];
+          setVisibleMeshes(prev => [...prev, nextMesh.uuid]);
+        }
+      }, 100); // Process a new mesh every 100ms
+    };
+
+    loader.load(
+      gltfPath,
+      (gltf) => {
+        if (modelRef.current) {
+          // Center the model
+          const box = new THREE.Box3().setFromObject(gltf.scene);
+          const center = box.getCenter(new THREE.Vector3());
+          gltf.scene.position.sub(center);
+
+          // Collect all meshes and prepare them
+          gltf.scene.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+              child.visible = false;
+              loadedMeshesRef.current.push(child);
+
+              // Prepare material for fade-in
+              if (child.material) {
+                if (Array.isArray(child.material)) {
+                  child.material.forEach(mat => {
+                    mat.transparent = true;
+                    mat.opacity = 0;
+                  });
+                } else {
+                  child.material.transparent = true;
+                  child.material.opacity = 0;
+                }
+              }
+            }
+          });
+
+          modelRef.current.add(gltf.scene);
+          startProcessingMeshes();
+        }
+      },
+      (progress) => {
+        // Optional: You can handle loading progress here
+        const percentComplete = (progress.loaded / progress.total) * 100;
+        console.log(`Loading: ${percentComplete}% complete`);
+      },
+      (error) => {
+        console.error('Error loading model:', error);
       }
-    });
+    );
 
-    // Show meshes one by one
-    meshes.forEach((mesh, index) => {
-      setTimeout(() => {
-        setVisibleMeshes(prev => [...prev, mesh.uuid]);
-      }, index * 200); // Adjust timing here (200ms between each mesh)
-    });
-
-    // Center the model
-    const box = new THREE.Box3().setFromObject(gltf.scene);
-    const center = box.getCenter(new THREE.Vector3());
-    gltf.scene.position.sub(center);
-
-    if (modelRef.current) {
-      modelRef.current.add(gltf.scene);
-    }
-  }, [gltf]);
+    return () => {
+      if (processingInterval.current) {
+        clearInterval(processingInterval.current);
+      }
+      dracoLoader.dispose();
+    };
+  }, [gltfPath]);
 
   useEffect(() => {
-    if (!gltf) return;
+    if (!modelRef.current) return;
 
-    gltf.scene.traverse((child) => {
+    modelRef.current.traverse((child) => {
       if (child instanceof THREE.Mesh) {
-        // Create a fade-in effect
         if (visibleMeshes.includes(child.uuid)) {
           child.visible = true;
           if (child.material) {
-            if (Array.isArray(child.material)) {
-              child.material.forEach(mat => {
-                mat.transparent = true;
-                mat.opacity = 0;
-                fadeInMaterial(mat);
-              });
-            } else {
-              child.material.transparent = true;
-              child.material.opacity = 0;
-              fadeInMaterial(child.material);
-            }
+            const materials = Array.isArray(child.material) ? child.material : [child.material];
+            materials.forEach(material => {
+              if (!material.userData.fadeStarted) {
+                material.userData.fadeStarted = true;
+                fadeInMaterial(material);
+              }
+            });
           }
         }
       }
     });
-  }, [visibleMeshes, gltf]);
+  }, [visibleMeshes]);
 
   const fadeInMaterial = (material: THREE.Material) => {
+    const fadeSpeed = 0.03;
     const animate = () => {
       if (material.opacity < 1) {
-        material.opacity += 0.05;
+        material.opacity = Math.min(material.opacity + fadeSpeed, 1);
         requestAnimationFrame(animate);
       }
     };
@@ -103,13 +141,12 @@ function CustomCamera() {
   return null;
 }
 
-const GLTFViewer: React.FC<GLTFViewerProps> = ({ gltfPath }) => {
-  const { progress } = useProgress();
+const GLTFViewer: React.FC<GLTFViewerProps> = ({ gltfPath }) => { 
 
   return (
     <>
       <div className="w-full h-screen" suppressHydrationWarning>
-        <Canvas camera={{ fov: 50, position: [5, 5, 5] }}>
+        <Canvas camera={{ fov: 50, position: [5, 5, 5] }} >
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <CustomCamera />

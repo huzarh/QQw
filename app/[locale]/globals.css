@@ -7,6 +7,9 @@
     text-wrap: balance;
   }
 }
+body::-webkit-scrollbar {
+  display: none; /* Scrollbar'ı gizle */
+}
 
 @layer base {
   :root {
