@@ -16,14 +16,14 @@ const GLBModel: React.FC<{ glbPath: string }> = ({ glbPath }) => {
 
 const GLBViewer: React.FC<GLBViewerProps> = ({ glbPath }) => {
   return (
-    <div style={{ width: "100%", height: "100vh" ,background:"gray"}}>
-      <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
+    <div className="w-full h-full">
+      <Canvas camera={{ position: [5,-65, -5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 10]} intensity={1} />
         <Suspense fallback={null}>
           <GLBModel glbPath={glbPath} />
         </Suspense>
-        <OrbitControls />
+        <OrbitControls minDistance={200} maxDistance={500} target={[0,-89, 0]} />
       </Canvas>
     </div>
   );
