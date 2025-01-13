@@ -6,12 +6,12 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
-    title: "Khuzair Askyer - Mikroelektronik Mühendisliği Öğrencisi",
+    title: "Khuzair Askyer - Mekatronik Mühendisliği Öğrencisi",
     description:
-      "Khuzair Askyer, Sakarya Uygulamalı Bilimler Üniversitesi'nde Mikroelektronik Mühendisliği öğrencisi. Teknoloji ve tasarım tutkusuyla geleceğin elektronik sistemlerini şekillendiriyor.",
+      "Khuzair Askyer, Sakarya Uygulamalı Bilimler Üniversitesi'nde Mekatronik Mühendisliği öğrencisi. Teknoloji ve tasarım tutkusuyla geleceğin elektronik sistemlerini şekillendiriyor.",
     keywords: [
       "Khuzair Askyer",
-      "Mikroelektronik Mühendisliği",
+      "Mekatronik Mühendisliği",
       "Sakarya Üniversitesi",
       "elektronik sistemler",
       "teknoloji",
@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       icon: "/favicon.png",
     },
     openGraph: {
-      title: "Khuzair Askyer - Mikroelektronik Mühendisliği Öğrencisi",
+      title: "Khuzair Askyer - Mekatronik Mühendisliği Öğrencisi",
       description:
-        "Khuzair Askyer, Sakarya Uygulamalı Bilimler Üniversitesi'nde Mikroelektronik Mühendisliği öğrencisi. Teknoloji ve tasarım tutkusuyla geleceğin elektronik sistemlerini şekillendiriyor.",
+        "Khuzair Askyer, Sakarya Uygulamalı Bilimler Üniversitesi'nde Mekatronik Mühendisliği öğrencisi. Teknoloji ve tasarım tutkusuyla geleceğin elektronik sistemlerini şekillendiriyor.",
       images: [
         {
           url: "/assets/khuzairaskyer.jpeg",
@@ -37,9 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Khuzair Askyer - Mikroelektronik Mühendisliği Öğrencisi",
+      title: "Khuzair Askyer - Mekatronik  Mühendisliği Öğrencisi",
       description:
-        "Khuzair Askyer, Sakarya Uygulamalı Bilimler Üniversitesi'nde Mikroelektronik Mühendisliği öğrencisi. Teknoloji ve tasarım tutkusuyla geleceğin elektronik sistemlerini şekillendiriyor.",
+        "Khuzair Askyer, Sakarya Uygulamalı Bilimler Üniversitesi'nde Mekatronik  Mühendisliği öğrencisi. Teknoloji ve tasarım tutkusuyla geleceğin elektronik sistemlerini şekillendiriyor.",
       images: ["/assets/khuzairaskyer.jpeg"],
     },
   };
