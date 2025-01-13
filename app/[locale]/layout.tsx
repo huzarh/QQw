@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+// app/layout.tsx 
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header/page";
 import { Providers } from "../providers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import HeaderWrapper from "@/components/HeaderWrapper"; // HeaderWrapper'ı import edin
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,14 +16,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
-export const metadata: Metadata = {
-  title: "Uzeyir",
-  description: "Created by Web,Modile developer Khuzair Askyer",
-  icons: {
-    icon: "/favicon.png",
-  },
-};
 
 export default async function RootLayout({
   children,
@@ -37,10 +29,13 @@ export default async function RootLayout({
       <NextIntlClientProvider messages={messages}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} grid justify-items-center antialiased min-w-80`}
-        >        <meta name="google-site-verification" content="_6hZElubIlAU_jlpUA_eUuZnMudfeAWKbt_f0vwn2MI" />
-
+        >
+          <meta
+            name="google-site-verification"
+            content="_6hZElubIlAU_jlpUA_eUuZnMudfeAWKbt_f0vwn2MI"
+          />
           <Providers>
-            <Header />
+            <HeaderWrapper /> {/* Header yerine HeaderWrapper kullanın */}
             {children}
           </Providers>
         </body>

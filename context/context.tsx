@@ -12,7 +12,7 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <MyContext.Provider value={{ value, setValue }}>
-      {children}
+      {children} 
     </MyContext.Provider>
   );
 };
