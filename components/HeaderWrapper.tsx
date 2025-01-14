@@ -6,7 +6,7 @@ import Header from "@/components/Header/page";
 
 export default function HeaderWrapper() {
   const pathname = usePathname();
-  const isSakuraPage = pathname.includes("/khuzair") || pathname.includes("/guzergah");
+  const isSakuraPage = pathname.includes("/khuzair") || pathname.includes("/guzergah") || pathname.includes("/royal");
 
   // Eğer pathname "/sakura" içeriyorsa Header'ı render etme
   return !isSakuraPage ? <Header /> : null;

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Portrait of Lady Mary Douglas
+* source:	https://sketchfab.com/3d-models/portrait-of-lady-mary-douglas-94d21c28c6bd41aea49693b5d0422931
+* author:	Geoffrey Marchal (https://sketchfab.com/geoffreymarchal)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Portrait of Lady Mary Douglas" (https://sketchfab.com/3d-models/portrait-of-lady-mary-douglas-94d21c28c6bd41aea49693b5d0422931) by Geoffrey Marchal (https://sketchfab.com/geoffreymarchal) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

@@ -1,0 +1,79 @@
+"use client"; // Mark as a Client Component
+
+import React, { Suspense, useEffect, useRef } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import * as THREE from "three";
+
+type GLTFViewerProps = {
+  gltfPath: string;
+};
+
+// Use useGLTF instead of useLoader for optimized loading
+const GLTFModel: React.FC<{ gltfPath: string }> = ({ gltfPath }) => {
+  const gltf = useGLTF(gltfPath, true); // Enable Draco compression
+  const { scene } = gltf;
+
+  // Center the model
+  const bbox = new THREE.Box3().setFromObject(scene);
+  const center = new THREE.Vector3();
+  bbox.getCenter(center);
+  scene.position.sub(center);
+
+  return <primitive object={scene} />;
+};
+
+// Custom camera setup
+function CustomCamera() {
+  const { camera } = useThree();
+
+  useEffect(() => {
+    if (camera instanceof THREE.PerspectiveCamera) {
+      camera.position.set(-0.5, -1, 1);
+      camera.fov = 26;
+      camera.rotation.set(Math.PI / -8, 0, Math.PI / 5);
+      camera.updateProjectionMatrix();
+    }
+  }, [camera]);
+
+  return null;
+}
+
+const Royal: React.FC<GLTFViewerProps> = ({ gltfPath }) => {
+  const directionalLightRef = useRef<THREE.DirectionalLight>(null);
+
+  return (
+    <div className="w-screen h-full" suppressHydrationWarning>
+      <Canvas>
+        <CustomCamera />
+        {/* Directional Light */}
+        <directionalLight
+          ref={directionalLightRef}
+          position={[0, -120, 100]}
+          intensity={10}
+          color={"white"}
+        />
+        {/* Directional Light Helper */}
+        {directionalLightRef.current && (
+          <primitive object={new THREE.DirectionalLightHelper(directionalLightRef.current, 15)} />
+        )}
+        {/* <ambientLight intensity={5} /> */}
+
+        <Suspense fallback={null}>
+          <GLTFModel gltfPath={gltfPath} />
+        </Suspense>
+
+        <axesHelper args={[15]} />
+        <OrbitControls
+          makeDefault // Make OrbitControls the default controls
+          target={[0, 0, 0]} // Focus on the center of the model
+          minDistance={50} // Minimum camera zoom distance
+          maxDistance={70} // Maximum camera zoom distance
+          minPolarAngle={Math.PI / 5} // Lock the camera horizontally
+        />
+      </Canvas>
+    </div>
+  );
+};
+
+export default Royal;
