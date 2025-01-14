@@ -18,7 +18,7 @@ export default function Khuzair() {
     isPublished: true,
     tags: [
       "Khuzair Askyer",
-      "Mikroelektronik Mühendisliği",
+      "Mekatronik Mühendisliği",
       "Öğrenci",
       "Yazılım Geliştirme",
       "Web Geliştirme",
@@ -47,7 +47,7 @@ export default function Khuzair() {
               <Avatar className="w-14 h-14 relative">
                 <Image
                   src="/assets/khuzairaskyer.jpeg"
-                  alt="Khuzair Askyer - Mikroelektronik Mühendisliği Öğrencisi"
+                  alt="Khuzair Askyer - Mekatronik Mühendisliği Öğrencisi"
                   width={56}
                   height={56}
                   className="rounded-full"
@@ -57,8 +57,9 @@ export default function Khuzair() {
               </Avatar>
             </div>
             <div>
+              {/* Use CardTitle directly without nesting <h1> */}
               <CardTitle className="text-xl dark:text-white font-semibold tracking-tight">
-                <h1>Khuzair Askyer</h1>
+                Khuzair Askyer
               </CardTitle>
               <CardDescription className="text-sm dark:text-gray-300 font-medium text-gray-500">
                 + 90 534 718 94 25
@@ -66,11 +67,12 @@ export default function Khuzair() {
             </div>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-700 dark:text-gray-200 font-bold text-lg mb-2">
-              <h2>Mikroelektronik Mühendisliği Öğrencisi</h2>
-            </p>
+            {/* Use <div> instead of <p> for the heading */}
+            <div className="text-gray-700 dark:text-gray-200 font-bold text-lg mb-2">
+              <h2>Mekatronik Mühendisliği Öğrencisi</h2>
+            </div>
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-              Sakarya Uygulamalı Bilimler Üniversitesi&#39;nde Mikroelektronik
+              Sakarya Uygulamalı Bilimler Üniversitesi&#39;nde Mekatronik
               Mühendisliği okuyorum. Teknoloji ve tasarım tutkusuyla, geleceğin
               elektronik sistemlerini şekillendirmek için çalışıyorum.
             </p>
