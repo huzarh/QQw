@@ -1,0 +1,16 @@
+export const appMetaData = {
+    title: 'Khuzair Asker | FullStack Developer | Mekatronik Mühendisliği Öğrencisi',
+    author: 'Khuzair Asker',
+    headerTitle: 'Khuzair Asker - Mekatronik Mühendisliği Öğrencisi',
+    description: 'Teknoloji ve tasarım tutkusuyla, geleceğin teknolojilerin şekillendirmek için çalışıyorum.',
+    language: 'en-us',
+    theme: 'system',
+    siteUrl: 'https://uzeyiraskyer.com',
+    siteLogo: '/favicon.png',
+    socialBanner: '/assets/khuzairaskyer.jpeg',
+    email: 'huzarh44@gmail.com',
+    github: 'https://github.com/huzarh',
+    youtube: 'https://youtube.com/@huzarh',
+    linkedin: 'https://www.linkedin.com/in/uzeyiraskyer/',
+    locale: 'en-US',
+  };

@@ -21,7 +21,11 @@ const CADExperiences: CADExperience[] = [
     imageUrl: "/assets/wheelbarrow.png",
     videoUrl: "/assets/videos/catia-demo-1.mp4",
     date: "2024-03-28",
-    technologies: ["Kinematik Simülasyon", "Yüzey Tasarımı", "3D Montaj tasarımı"],
+    technologies: [
+      "Kinematik Simülasyon",
+      "Yüzey Tasarımı",
+      "3D Montaj tasarımı",
+    ],
   },
   {
     id: 1,
@@ -36,7 +40,8 @@ const CADExperiences: CADExperience[] = [
 ];
 
 const Section2: React.FC = () => {
-  const [selectedExperience, setSelectedExperience] = useState<CADExperience | null>(null);
+  const [selectedExperience, setSelectedExperience] =
+    useState<CADExperience | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const openModal = (experience: CADExperience) => {
@@ -65,12 +70,16 @@ const Section2: React.FC = () => {
                 className="w-full h-48 object-cover"
                 src={experience.imageUrl}
                 alt={experience.title}
+                width={500} // Set the width of the image (adjust as needed)
+                height={300} // Set the height of the image (adjust as needed)
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
                   {experience.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{experience.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {experience.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {experience.technologies.map((tech, index) => (
                     <span
@@ -81,7 +90,9 @@ const Section2: React.FC = () => {
                     </span>
                   ))}
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">{experience.date}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                  {experience.date}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -112,7 +123,9 @@ const Section2: React.FC = () => {
               <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
                 {selectedExperience.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">{selectedExperience.description}</p>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                {selectedExperience.description}
+              </p>
               <button
                 className="mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
                 onClick={closeModal}
