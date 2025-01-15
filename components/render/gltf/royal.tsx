@@ -100,7 +100,7 @@ const Royal: React.FC<GLTFViewerProps> = ({ gltfPath }) => {
           target={[0, 0, 0]} // Focus on the center of the model
           minDistance={10} // Minimum camera zoom distance
           maxDistance={70} // Maximum camera zoom distance
-          minPolarAngle={Math.PI / 5} // Lock the camera horizontally
+          minPolarAngle={Math.PI / 5} // Lock the camera horizontally 
         />
       </Canvas>
     </div>
