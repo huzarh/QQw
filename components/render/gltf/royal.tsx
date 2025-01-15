@@ -2,7 +2,7 @@
 
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useThree, extend, useFrame } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF, Loader } from "@react-three/drei"; // Import Loader
 import * as THREE from "three";
 import { EffectComposer, RenderPass, BloomEffect, EffectPass } from "postprocessing"; // Import from postprocessing
 import { IoPlayCircleOutline, IoStopCircleOutline } from "react-icons/io5"; // Icons
@@ -47,22 +47,7 @@ function CustomCamera() {
 // Sun-like light source
 const SunLight = () => {
   const pointLightRef = useRef<THREE.PointLight>(null);
-  // const { scene } = useThree(); // Access the Three.js scene
   const vector = new THREE.Vector3(5, 5, 10);
-
-  // useEffect(() => {
-  //   if (pointLightRef.current) {
-  //     console.log("PointLight position:", pointLightRef.current.position);
-  //     const helper = new THREE.PointLightHelper(pointLightRef.current, 0.5);
-  //     scene.add(helper);
-  //     console.log("PointLightHelper added to scene");
-      
-  //     return () => {
-  //       scene.remove(helper);
-  //       console.log("PointLightHelper removed from scene");
-  //     };
-  //   }
-  // }, [scene]);
 
   return (
     <group>
@@ -191,6 +176,18 @@ const Royal: React.FC<GLTFViewerProps> = ({ gltfPath }) => {
         {/* Post-processing */}
         <Effects />
       </Canvas>
+
+      {/* Loader */}
+      <Loader 
+        containerStyles={{
+          background: 'rgba(0, 0, 0, 0.5)',
+        }}
+        barStyles={{
+          height: '5px',
+          background: '#7f00ff',
+        }}
+        dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`}
+      />
     </div>
   );
 };
