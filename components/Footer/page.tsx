@@ -119,7 +119,7 @@ const Footer = () => {
         {/* Alt Kısım: Telif Hakkı Bilgisi */}
         <div className="border-t border-gray-300 dark:border-gray-700 pt-8 text-center">
           <p className="text-sm">
-            © 2025 Khuzair Askyer. Tüm hakları saklıdır.
+          K-ASK Tech © 2025
           </p>
         </div>
       </div>
