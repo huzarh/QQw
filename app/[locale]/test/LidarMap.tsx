@@ -20,7 +20,7 @@ type LidarData = {
 };
 
 const CANVAS_WIDTH = 1024;
-const SCALE = 80; // 1 metre = 50 pixels
+const SCALE = 70; // 1 metre = 50 pixels
 
 export default function LidarMap360({ lidarData }: { lidarData: LidarData }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -61,7 +61,7 @@ export default function LidarMap360({ lidarData }: { lidarData: LidarData }) {
         const y = robotY + Math.sin(angle) * range * SCALE;
 
         // Draw detected point
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "white";
         ctx.beginPath();
         ctx.arc(x, y, 0.8, 0, 2 * Math.PI); // Draw point
         ctx.fill();
