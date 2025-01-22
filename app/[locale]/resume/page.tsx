@@ -12,7 +12,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: "https://www.uzeyiraskyer.com/assets/resume/resume.png",
+        url: "https://www.uzeyiraskyer.com/assets/resume/resume.jpg",
         width: 1200,
         height: 630,
         alt: 'Khuzair Asker - FullStack Developer',
@@ -24,7 +24,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: "Resume | Üzeyir Askyer",
     description: "Mekatronik Mühendisliği Öğrencisi | IoT ve Otomasyon Sistemleri Geliştirici",
-    images: ["https://www.uzeyiraskyer.com/assets/resume/resume.png"],
+    images: ["https://www.uzeyiraskyer.com/assets/resume/resume.jpg"],
   },
 };
 
