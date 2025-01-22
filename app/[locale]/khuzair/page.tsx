@@ -72,9 +72,7 @@ export default function Khuzair() {
               <h2>Mekatronik Mühendisliği Öğrencisi</h2>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-              Sakarya Uygulamalı Bilimler Üniversitesi&#39;nde Mekatronik
-              Mühendisliği okuyorum. Teknoloji ve tasarım tutkusuyla, geleceğin
-              elektronik sistemlerini şekillendirmek için çalışıyorum.
+            Mekatronik ve yazılım alanındaki bilgilerimi birleştirerek IoT tabanlı otomasyon sistemleri ve web tabanlı kontrol panelleri geliştiriyorum. Gerçek zamanlı veri izleme, uzaktan kontrol ve verimli süreç yönetimi konularında çözümler sunuyorum.
             </p>
           </CardContent>
         </Card>

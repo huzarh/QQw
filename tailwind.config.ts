@@ -10,7 +10,14 @@ const config: Config = {
   theme: {
   	extend: {
 		fontFamily: {
-			'iawriter': ['"iA Writer Mono"', 'monospace'],
+			'iawriter': ['"iA Writer Mono"', 'monospace',"system-ui",
+				"-apple-system",
+				"BlinkMacSystemFont",
+				"Segoe UI",
+				"Roboto",
+				"Helvetica Neue",
+				"Arial",
+				"sans-serif",], 
 		  },
   		colors: {
 			testcolor: 'var(--test-color)',
