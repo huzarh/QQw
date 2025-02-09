@@ -6,367 +6,53 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import LidarMap360 from "./LidarMap";
-import Draggable from "react-draggable"; // Impor 
- 
-const lidarData = {
-  header: {
-    seq: 396,
-    stamp: {
-      secs: 306,
-      nsecs: 29000000,
-    },
-    frame_id: "lidar_frame",
-  },
-  angle_min: -3.141590118408203,
-  angle_max: 3.141590118408203,
-  angle_increment: 0.017501894384622574,
-  time_increment: 0.0,
-  scan_time: 0.0,
-  range_min: 0.10000000149011612,
-  range_max: 10.0,
-  ranges: [
-    2.980598211288452,
-    2.9810545444488525,
-    2.9824249744415283,
-    2.984711170196533,
-    2.987916946411133,
-    2.992047071456909,
-    2.997107744216919,
-    3.0031070709228516,
-    3.010054349899292,
-    3.017960548400879,
-    3.0268378257751465,
-    3.036700487136841,
-    3.0475640296936035,
-    3.059446334838867,
-    3.072366237640381,
-    3.0863451957702637,
-    3.1014060974121094,
-    3.117574453353882,
-    3.1348776817321777,
-    3.1533451080322266,
-    3.173009157180786,
-    3.193904399871826,
-    3.2160685062408447,
-    3.239541530609131,
-    3.264366865158081,
-    3.2905914783477783,
-    3.318265438079834,
-    3.347442865371704,
-    3.3781819343566895,
-    3.4105451107025146,
-    3.4445996284484863,
-    5.480417251586914,
-    300,
-    300,
-    300,
-    300,
-    4.568534851074219,
-    4.462129592895508,
-    4.361873626708984,
-    4.2673020362854,
-    4.177996635437012,
-    4.0130743980407715,
-    4.0137200355529785,
-    3.9380998611450195,
-    3.866438865661621,
-    3.7984821796417236,
-    3.733996868133545,
-    3.6727707386016846,
-    3.614609479904175,
-    3.5593347549438477,
-    3.5067830085754395,
-    3.456804037094116,
-    3.40925931930542,
-    3.364021062850952,
-    3.3209714889526367,
-    3.2800018787384033,
-    3.241011381149292,
-    3.203907012939453,
-    3.1686019897460938,
-    3.135016441345215,
-    3.1030759811401367,
-    3.07271146774292,
-    3.043858766555786,
-    3.01645827293396,
-    2.9904544353485107,
-    2.9657959938049316,
-    2.942434549331665,
-    2.920325994491577,
-    2.899428606033325,
-    2.879703998565674,
-    2.861116409301758,
-    2.843632698059082,
-    2.8272221088409424,
-    2.8118560314178467,
-    2.797508478164673,
-    2.7841551303863525,
-    2.77177357673645,
-    2.760343551635742,
-    2.7498462200164795,
-    2.740264415740967,
-    2.7315831184387207,
-    2.7237865924835205,
-    2.7168638706207275,
-    2.7108042240142822,
-    2.7055985927581787,
-    2.7012388706207275,
-    2.6977179050445557,
-    2.695030689239502,
-    2.6931729316711426,
-    2.6921417713165283,
-    2.6919357776641846,
-    2.692554473876953,
-    2.6939988136291504,
-    2.6962709426879883,
-    2.6993744373321533,
-    2.7033140659332275,
-    2.7080960273742676,
-    2.7137277126312256,
-    2.720217704772949,
-    7.895148754119873,
-    7.918996334075928,
-    7.945429801940918,
-    7.974491119384766,
-    8.006227493286133,
-    8.040690422058105,
-    7.846172332763672,
-    7.658125400543213,
-    300,
-    300,
-    6.260007381439209,
-    5.962978839874268,
-    5.694525718688965,
-    5.45080041885376,
-    5.228617191314697,
-    5.175440788269043,
-    3.0720908641815186,
-    3.0033342838287354,
-    3.0300333499908447,
-    3.058156728744507,
-    3.087761402130127,
-    3.1189098358154297,
-    3.151668071746826,
-    3.186108350753784,
-    3.2223072052001953,
-    3.2603485584259033,
-    3.300321578979492,
-    3.3423235416412354,
-    3.3864588737487793,
-    3.334778070449829,
-    3.263113021850586,
-    3.1954214572906494,
-    3.1314210891723633,
-    3.0708560943603516,
-    3.0134949684143066,
-    2.959127426147461,
-    2.9075615406036377,
-    2.8586227893829346,
-    2.8121511936187744,
-    2.768000841140747,
-    2.7260372638702393,
-    2.6861376762390137,
-    2.648188591003418,
-    2.6120858192443848,
-    2.577733278274536,
-    2.545041799545288,
-    2.513929843902588,
-    2.484320878982544,
-    2.4848735332489014,
-    2.5552146434783936,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    300,
-    2.54821515083313,
-    2.475299119949341,
-    2.4561333656311035,
-    2.4843087196350098,
-    2.5139169692993164,
-    2.5450284481048584,
-    2.577719211578369,
-    2.6120710372924805,
-    2.6481730937957764,
-    2.6861214637756348,
-    2.726020097732544,
-    2.7679827213287354,
-    2.8121321201324463,
-    2.85860276222229,
-    2.9075405597686768,
-    2.9591052532196045,
-    3.0134716033935547,
-    3.070831298828125,
-    3.131394863128662,
-    3.1953938007354736,
-    3.2630836963653564,
-    3.318035840988159,
-    3.273205041885376,
-    3.23054575920105,
-    3.189948797225952,
-    3.151312828063965,
-    3.114543914794922,
-    3.0795557498931885,
-    3.0462677478790283,
-    3.0146050453186035,
-    2.9844985008239746,
-    2.9558839797973633,
-    2.928701400756836,
-    2.902895212173462,
-    2.8784141540527344,
-    2.8552095890045166,
-    2.8332369327545166,
-    2.81245493888855,
-    2.7928247451782227,
-    2.774310827255249,
-    2.7568793296813965,
-    2.321251630783081,
-    2.451340675354004,
-    2.597719430923462,
-    2.6821813583374023,
-    2.669814348220825,
-    2.6583714485168457,
-    2.647833824157715,
-    2.6381845474243164,
-    2.6294076442718506,
-    2.6214890480041504,
-    2.6144165992736816,
-    2.6081790924072266,
-    2.602766513824463,
-    2.598170518875122,
-    2.59438419342041,
-    2.5914013385772705,
-    2.5892174243927,
-    2.587829351425171,
-    2.5872347354888916,
-    2.587432861328125,
-    2.58842396736145,
-    2.590209484100342,
-    2.30407977104187,
-    2.199897527694702,
-    2.600456714630127,
-    2.6054601669311523,
-    2.611284017562866,
-    2.6179378032684326,
-    2.625432014465332,
-    2.6337780952453613,
-    2.6429896354675293,
-    2.6530814170837402,
-    2.664069652557373,
-    2.6759722232818604,
-    2.6888091564178467,
-    2.702601671218872,
-    2.7173728942871094,
-    2.7331483364105225,
-    2.749955177307129,
-    2.7678232192993164,
-    2.7867841720581055,
-    2.7648422718048096,
-    2.6547930240631104,
-    2.5539212226867676,
-    2.46116042137146,
-    2.9156334400177,
-    2.9421212673187256,
-    2.970012903213501,
-    2.999366044998169,
-    3.030242443084717,
-    3.062709093093872,
-    3.0968377590179443,
-    3.1327061653137207,
-    3.1703975200653076,
-    3.2100021839141846,
-    3.251617431640625,
-    3.295348644256592,
-    3.3413095474243164,
-    3.3896234035491943,
-    3.4404244422912598,
-    3.4938578605651855,
-    3.550081729888916,
-    3.6092684268951416,
-    3.6716058254241943,
-    3.7372992038726807,
-    3.80649995803833,
-    3.8796002864837646,
-    3.95621395111084,
-    3.897280216217041,
-    3.948335647583008,
-    4.216127872467041,
-    4.313034534454346,
-    4.4158854484558105,
-    4.525181293487549,
-    4.641482353210449,
-    4.765417575836182,
-    4.897694110870361,
-    5.039111614227295,
-    5.19057559967041,
-    5.3531174659729,
-    3.37819504737854,
-    3.3474552631378174,
-    3.318277359008789,
-    3.290602684020996,
-    3.2643775939941406,
-    3.239551544189453,
-    3.216078042984009,
-    3.193913459777832,
-    3.173017740249634,
-    3.153353214263916,
-    3.13488507270813,
-    3.117581605911255,
-    3.101412773132324,
-    3.086351156234741,
-    3.0723719596862793,
-    3.0594515800476074,
-    3.0475687980651855,
-    3.0367047786712646,
-    3.026841878890991,
-    3.0179641246795654,
-    3.0100576877593994,
-    3.003109931945801,
-    2.99711012840271,
-    2.992048978805542,
-    2.9879183769226074,
-    2.9847123622894287,
-    2.9824256896972656,
-    2.9810550212860107,
-    2.980598211288452,
-  ],
-};
+import Draggable from "react-draggable";
+import ROSLIB from "roslib";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  // State to store live LiDAR data
+  const [lidarData, setLidarData] = useState(null);
+
+  useEffect(() => {
+    // Create a ROS connection
+    const ros = new ROSLIB.Ros({
+      url: "ws://localhost:9090", // Replace with your ROSBridge WebSocket URL
+    });
+
+    // Handle connection events
+    ros.on("connection", () => {
+      console.log("Connected to ROSBridge");
+    });
+
+    ros.on("error", (error) => {
+      console.error("Error connecting to ROSBridge:", error);
+    });
+
+    ros.on("close", () => {
+      console.log("Connection to ROSBridge closed");
+    });
+
+    // Subscribe to the LiDAR topic
+    const lidarTopic = new ROSLIB.Topic({
+      ros: ros,
+      name: "/lidar", // Replace with your LiDAR topic name
+      messageType: "sensor_msgs/LaserScan", // Replace with the correct message type
+    });
+
+    lidarTopic.subscribe((message) => {
+      console.log("Received LiDAR data:", message);
+      // Update state with live LiDAR data
+      setLidarData(message);
+    });
+
+    // Cleanup the subscription when the component unmounts
+    return () => {
+      lidarTopic.unsubscribe();
+      ros.close();
+    };
+  }, []);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -374,85 +60,94 @@ export default function Home() {
     isPublished: true,
     tags: ["GUZARGAH | SUBÜ"],
   };
-  return (<><script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-  />
-    <div className="w-screen h-screen flex justify-center items-center">
-      {/* LIDAR Verisi Card - Draggable */}
-      {/* alarm */}
-      <div className="fixed inset-0 bg-red-500 z-[9999] sm:hidden flex items-center justify-center">
-        <p className="text-white text-2xl font-bold">
-          bilgisayardan açmanız lazım
-        </p>
-      </div>
-      <Draggable defaultPosition={{ x: -420, y: -270 }}>
-        <Card className="absolute z-50 dark:bg-gray-800 dark:border-gray-700 cursor-move">
-          <CardHeader>
-            <CardTitle className="dark:text-white">LIDAR Verisi</CardTitle>
-            <CardDescription className="dark:text-gray-400">
-              Gerçek zamanlı LIDAR mesafe verileriler en uzak en yakın vb
-            </CardDescription>
-          </CardHeader>
-        </Card>
-      </Draggable>
 
-      {/* Kamera Görüntüsü Card - Draggable */}
-      <Draggable defaultPosition={{ x: -490, y: 0 }}>
-        <Card className="absolute z-50 dark:bg-gray-800 dark:border-gray-700 cursor-move">
-          <CardHeader>
-            <CardTitle className="dark:text-white">Kamera Görüntüsü</CardTitle>
-            <CardDescription className="dark:text-gray-400">
-              bu canlı olacak
-            </CardDescription>
-          </CardHeader>
-          {/* Kamera Görüntüsü (PNG) */}
-          <div className="p-4">
-            <img
-              src="/assets/lidarrobo.png" // Kamera görüntüsü (PNG) dosyası
-              alt="Kamera Görüntüsü"
-              className="w-64 h-48 object-cover rounded-lg"
-            />
-          </div>
-        </Card>
-      </Draggable>
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="w-screen h-screen flex justify-center items-center">
+        {/* LIDAR Verisi Card - Draggable */}
+        <div className="fixed inset-0 bg-red-500 z-[9999] sm:hidden flex items-center justify-center">
+          <p className="text-white text-2xl font-bold">
+            bilgisayardan açmanız lazım
+          </p>
+        </div>
+        <Draggable defaultPosition={{ x: -420, y: -270 }}>
+          <Card className="absolute z-50 dark:bg-gray-800 dark:border-gray-700 cursor-move">
+            <CardHeader>
+              <CardTitle className="dark:text-white">LIDAR Verisi</CardTitle>
+              <CardDescription className="dark:text-gray-400">
+                Gerçek zamanlı LIDAR mesafe verileri en uzak en yakın vb
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </Draggable>
 
-      {/* LIDAR Haritası */}
-      <LidarMap360 lidarData={lidarData} />
+        {/* Kamera Görüntüsü Card - Draggable */}
+        <Draggable defaultPosition={{ x: -490, y: 0 }}>
+          <Card className="absolute z-50 dark:bg-gray-800 dark:border-gray-700 cursor-move">
+            <CardHeader>
+              <CardTitle className="dark:text-white">Kamera Görüntüsü</CardTitle>
+              <CardDescription className="dark:text-gray-400">
+                bu canlı olacak
+              </CardDescription>
+            </CardHeader>
+            {/* Kamera Görüntüsü (PNG) */}
+            <div className="p-4">
+              <img
+                src="/assets/lidarrobo.png" // Kamera görüntüsü (PNG) dosyası
+                alt="Kamera Görüntüsü"
+                className="w-64 h-48 object-cover rounded-lg"
+              />
+            </div>
+          </Card>
+        </Draggable>
 
-      {/* Footer */}
-      <div className="fixed right-0 top-0 bottom-0 w-32 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4 z-50">
-        <div className="flex flex-col gap-8">
-          {" "}
-          {/* Dikey hizalama için flex-col ve gap ekledik */}
-          {/* QR Code */}
-          <div className="flex items-center bg-gray-100 rounded">
-            <img
-              src="/assets/qr.png" // QR code image
-              alt="QR Code"
-              className="w-12 h-12"
-            />
-            <span className="ml-2 dark:text-black ">QR Kod</span>
-          </div>
-          {/* Mesafe */}
-          <div className="text-center">
-            <span className="block text-sm dark:text-gray-400">Mesafe</span>
-            <span className="text-lg font-bold dark:text-white">2.5 m</span>
-          </div>
-          {/* Motor Sıcaklık */}
-          <div className="text-center">
-            <span className="block text-sm dark:text-gray-400">
-              Motor Sıcaklık
-            </span>
-            <span className="text-lg font-bold dark:text-red-700">999°C</span>
-          </div>
-          {/* Yük Durumu */}
-          <div className="text-center">
-            <span className="block text-sm dark:text-gray-400">Yük Durumu</span>
-            <span className="text-lg font-bold dark:text-red-700">Yük Yok</span>
+        {/* LIDAR Haritası */}
+        {lidarData ? (
+          <LidarMap360 lidarData={lidarData} />
+        ) : (
+          <p className="text-white">Loading LiDAR data...</p>
+        )}
+
+        {/* Footer */}
+        <div className="fixed right-0 top-0 bottom-0 w-32 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4 z-50">
+          <div className="flex flex-col gap-8">
+            {/* QR Code */}
+            <div className="flex items-center bg-gray-100 rounded">
+              <img
+                src="/assets/qr.png" // QR code image
+                alt="QR Code"
+                className="w-12 h-12"
+              />
+              <span className="ml-2 dark:text-black ">QR Kod</span>
+            </div>
+            {/* Mesafe */}
+            <div className="text-center">
+              <span className="block text-sm dark:text-gray-400">Mesafe</span>
+              <span className="text-lg font-bold dark:text-white">
+                {lidarData?.ranges?.length > 0
+                  ? Math.min(...lidarData.ranges).toFixed(2) + " m"
+                  : "N/A"}
+              </span>
+            </div>
+            {/* Motor Sıcaklık */}
+            <div className="text-center">
+              <span className="block text-sm dark:text-gray-400">
+                Motor Sıcaklık
+              </span>
+              <span className="text-lg font-bold dark:text-red-700">999°C</span>
+            </div>
+            {/* Yük Durumu */}
+            <div className="text-center">
+              <span className="block text-sm dark:text-gray-400">Yük Durumu</span>
+              <span className="text-lg font-bold dark:text-red-700">Yük Yok</span>
+            </div>
           </div>
         </div>
       </div>
-    </div></>
+    </>
   );
 }

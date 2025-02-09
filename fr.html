@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+</head>
+<body>
+    <h2>Chatbot</h2>
+    <input id="message" type="text" placeholder="Mesajınızı girin">
+    <button onclick="sendMessage()">Gönder</button>
+    <p id="response"></p>
+
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById("message").value;
+            const response = await fetch("http://localhost:3001/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message })
+            });
+            const data = await response.json();
+            document.getElementById("response").innerText = data.reply;
+        }
+    </script>
+</body>
+</html>

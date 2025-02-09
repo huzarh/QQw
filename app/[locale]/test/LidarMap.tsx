@@ -1,5 +1,4 @@
 "use client"; // Ensure this component is only rendered on the client side
-
 import { useEffect, useRef, useState } from "react";
 
 type LidarData = {
@@ -20,30 +19,41 @@ type LidarData = {
 };
 
 const CANVAS_WIDTH = 1024;
-const SCALE = 70; // 1 metre = 50 pixels
+const SCALE = 100; // Adjust scale as needed
 
 export default function LidarMap360({ lidarData }: { lidarData: LidarData }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [robotImage, setRobotImage] = useState<HTMLImageElement | null>(null);
-  const [canvasHeight, setCanvasHeight] = useState<number>(0); // Initialize canvas height
+  const [canvasHeight, setCanvasHeight] = useState<number>(0);
 
   // Set canvas height dynamically based on window height
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setCanvasHeight(window.innerHeight);
+      const height = window.innerHeight;
+      console.log("Canvas height set to:", height);
+      setCanvasHeight(height);
     }
   }, []);
 
-  // Robot PNG image load
+  // Load robot PNG image
   useEffect(() => {
     const img = new Image();
     img.src = "/assets/robot.png"; // Robot image from the public folder
     img.onload = () => {
+      console.log("Robot image loaded successfully");
       setRobotImage(img);
+    };
+    img.onerror = () => {
+      console.error("Failed to load robot image");
     };
   }, []);
 
   const drawLidarData = (ctx: CanvasRenderingContext2D) => {
+    if (!lidarData || !lidarData.ranges || lidarData.ranges.length === 0) {
+      console.warn("No LIDAR data available to draw");
+      return;
+    }
+
     const { angle_min, angle_increment, ranges, range_min, range_max } = lidarData;
 
     // Clear the canvas
@@ -63,15 +73,15 @@ export default function LidarMap360({ lidarData }: { lidarData: LidarData }) {
         // Draw detected point
         ctx.fillStyle = "white";
         ctx.beginPath();
-        ctx.arc(x, y, 0.8, 0, 2 * Math.PI); // Draw point
+        ctx.arc(x, y, 2, 0, 2 * Math.PI); // Larger point for visibility
         ctx.fill();
 
         // Draw line from center to the point
-        ctx.strokeStyle = "gray"; // Line color
-        ctx.lineWidth = 0.3; // Line thickness
+        ctx.strokeStyle = "gray";
+        ctx.lineWidth = 1; // Thicker lines for better visibility
         ctx.beginPath();
-        ctx.moveTo(robotX, robotY); // Line start point (robot's center)
-        ctx.lineTo(x, y); // Line end point (detected point)
+        ctx.moveTo(robotX, robotY);
+        ctx.lineTo(x, y);
         ctx.stroke();
       }
     });
@@ -98,7 +108,7 @@ export default function LidarMap360({ lidarData }: { lidarData: LidarData }) {
     if (!ctx) return;
 
     drawLidarData(ctx);
-  }, [lidarData, robotImage, canvasHeight]); // Redraw canvas when lidarData, robotImage, or canvasHeight changes
+  }, [lidarData, robotImage, canvasHeight]);
 
   return (
     <canvas
@@ -108,7 +118,7 @@ export default function LidarMap360({ lidarData }: { lidarData: LidarData }) {
       style={{
         width: `${CANVAS_WIDTH}px`,
       }}
-      className="h-full "
+      className="h-full"
     ></canvas>
   );
 }
